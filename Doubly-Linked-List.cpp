@@ -12,6 +12,22 @@ class node{
             prev = NULL;
         }
 };
+void search(node* &head,int value){
+    if(head == NULL){
+        cout << "The linked list is empty" << endl;
+        return;
+    }
+    node* temp = head;
+    while(temp != NULL && temp->data != value){
+        temp = temp->next;
+    }
+    if(temp == NULL){
+        cout << "Element not found." << endl;
+    }
+    else{
+        cout << "Element found." << endl;
+    }
+}
 void insertAtHead(node *&head,int val){
     node *p = new node(val);
     p->next = head;
@@ -80,5 +96,7 @@ int main(){
     deletion(head,4);
     deletion(head,2);
     display(head);
+    search(head,3);
+    search(head,10);
     return 0; 
 }
